@@ -69,14 +69,14 @@ Below is a sample payload
 The endpoint is expected to provide the response in following format after recording the data
 
 ```json
-{
-    [
+[
+    {
         "local": 1,
         "cloud": 12
-    ],
-    [
+    },
+    {
         "local": 2,
         "cloud": 13
-    ]
-}
+    }
+]
 ```
