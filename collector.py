@@ -23,26 +23,26 @@ def read_from_probes(probes):
 def read_from_dht(dhts):
     for pin in dhts:
 
-        data = DHT22(pin.get('name'), pin.get('pin'))
+        dht_data = DHT22(pin.get('name'), pin.get('pin'))
 
-        if(isinstance(data, dict)):
+        if(isinstance(dht_data, dict)):
             Readings.create(
                 sensor = pin.get('name') + ' Temperature',
                 timestamp = datetime.datetime.now(),
                 type = 1,
-                value = data.get('temperature')
+                value = dht_data.get('temperature')
             )
 
             Readings.create(
                 sensor = pin.get('name') + ' Humidity',
                 timestamp = datetime.datetime.now(),
                 type = 2,
-                value = data.get('humidity')
+                value = dht_data.get('humidity')
             )
-            log('%s Temperature: %s' % (pin.get('name'), data.get('temperature')))
-            log('%s Humidity: %s' % (pin.get('name'), data.get('humidity')))
-        elif isinstance(data, str):
-            log(data)
+            log('%s Temperature: %s' % (pin.get('name'), dht_data.get('temperature')))
+            log('%s Humidity: %s' % (pin.get('name'), dht_data.get('humidity')))
+        elif isinstance(dht_data, str):
+            log(dht_data)
 
 threads = []
 
