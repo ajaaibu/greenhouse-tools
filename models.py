@@ -10,6 +10,7 @@ class BaseModel(Model):
 
     class Meta:
         database = db
+        auto_increment = True
 
 class Readings(BaseModel):
     id = AutoField(primary_key=True)
