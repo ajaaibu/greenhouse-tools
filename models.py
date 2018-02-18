@@ -12,7 +12,7 @@ class BaseModel(Model):
         database = db
 
 class Readings(BaseModel):
-    id = IntegerField(primary_key=True)
+    id = AutoField(primary_key=True)
     sensor = CharField()
     timestamp = CharField()
     type = IntegerField()
@@ -21,7 +21,7 @@ class Readings(BaseModel):
     syncref = IntegerField()
 
 class Logs(BaseModel):
-    id = IntegerField(primary_key=True)
+    id = AutoField(primary_key=True)
     user = IntegerField()
     message = CharField()
     date = DateTimeField()  
