@@ -16,7 +16,7 @@ def read_from_probes(probes):
                 type = 1,
                 value = data.get('temperature')
             )
-            log('Temperature reading of ' + probe.get('name') + ': ' + probe.get('temperature'))
+            log('Temperature reading of %s: %s' % (probe.get('name'),probe.get('temperature')))
         elif isinstance(data, str):
             log(data)
 
