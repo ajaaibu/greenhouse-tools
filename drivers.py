@@ -21,4 +21,4 @@ def DHT22(name, pin):
         h,t = dht.read_retry(dht.DHT22, 4)
         return {"temperature": ('{:3.2f}').format(t), "humidity": ('{:3.2f}').format(h)}
     except:
-        return 'Couldn\'t read from ' + name + ', pin: ' + pin
+        return 'Couldn\'t read from %s, pin: %s' % name, pin
