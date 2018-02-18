@@ -19,7 +19,7 @@ class Readings(BaseModel):
     type = IntegerField()
     value = DoubleField()
     dbsync = BooleanField(default=False)
-    syncref = IntegerField(default=None)
+    syncref = IntegerField(null = True)
 
 class Logs(BaseModel):
     id = AutoField(primary_key=True)
