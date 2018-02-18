@@ -39,7 +39,7 @@ def read_from_dht(dhts):
                 type = 2,
                 value = data.get('humidity')
             )
-        elif isinstance(data, str)
+        elif isinstance(data, str):
             log(data)
 
 threads = []
