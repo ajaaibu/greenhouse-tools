@@ -16,9 +16,9 @@ def TempProbe(name, serial):
     except:
         return 'Couldn\'t read from %s, serial: %s' % (name, serial)
 
-def DHT22(name, pin):
+def DHT22(name, pin_no):
     try:
-        h,t = dht.read_retry(dht.DHT22, pin)
+        h,t = dht.read_retry(dht.DHT22, pin_no)
         return {"temperature": ('{0:0.1f}'.format(t)), "humidity": ('{0:0.1f}'.format(h))}
     except:
-        return 'Couldn\'t read from %s, pin: %s' % (name, pin)
+        return 'Couldn\'t read from %s, pin: %s' % (name, pin_no)
