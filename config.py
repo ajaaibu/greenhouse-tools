@@ -12,10 +12,10 @@ config = {
         }
     ],
 
-    "DHT": {
-        [
+    "DHT": [
+        {
             'name': 'House',
             'pin': 4
-        ]
-    }
+        }
+    ]
 }
