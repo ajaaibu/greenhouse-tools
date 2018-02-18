@@ -15,7 +15,7 @@ config = {
     "DHT": [
         {
             'name': 'House',
-            'pin': 4
+            'pin': 14
         }
     ]
 }
