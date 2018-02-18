@@ -39,6 +39,8 @@ def read_from_dht(dhts):
                 type = 2,
                 value = data.get('humidity')
             )
+            log('%s Temperature: %s' % (pin.get('name'), data.get('temperature')))
+            log('%s Humidity: %s' % (pin.get('name'), data.get('humidity')))
         elif isinstance(data, str):
             log(data)
 
