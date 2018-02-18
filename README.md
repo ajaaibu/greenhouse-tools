@@ -34,6 +34,7 @@ Now you should have a shell instance of the virtualenv
 
 #### Argument definitions
 - --probes will run the data collection method for temperature reading from DS18B20 mapping
+- --dht will run the data collection method for temperature & humidity reading from DHT mapping
 
 You are free to decide how you run the collector, it is designed to run multiple collection methods in a run, each method will be run in a separate thread
 

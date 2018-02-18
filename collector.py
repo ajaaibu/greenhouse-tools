@@ -1,4 +1,4 @@
-from drivers import TempProbe
+from drivers import TempProbe, DHT22
 from helpers import log
 from models import Readings
 from config import config
@@ -20,9 +20,37 @@ def read_from_probes(probes):
         elif isinstance(data, str):
             log(data)
 
+def read_from_dht(dhts):
+    for dht in dhts:
+
+        data = DHT22(dht.get('name'), dht.get('pin'))
+
+        if(isinstance(data, dict)):
+            Readings.create(
+                sensor = dht.get('name') + ' Temperature',
+                timestamp = datetime.datetime.now(),
+                type = 1,
+                value = data.get('temperature')
+            )
+
+            Readings.create(
+                sensor = dht.get('name') + ' Humidity',
+                timestamp = datetime.datetime.now(),
+                type = 2,
+                value = data.get('humidity')
+            )
+        elif isinstance(data, str)
+            log(data)
+
 threads = []
 
 if '--probes' in sys.argv:
     probes_thread = threading.Thread(target=read_from_probes, args=(config.get('DS18B20'),))
     threads.append(probes_thread)
     probes_thread.start()
+
+
+if '--dht' in sys.argv:
+    dht_thread = threading.Thread(target=read_from_dht, args=(config.get('DHT'),))
+    threads.append(dht_thread)
+    dht_thread.start()
