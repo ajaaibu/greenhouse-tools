@@ -2,7 +2,7 @@ import os, sys
 import Adafruit_DHT as dht
 
 def TempProbe(name, serial):
-    filePath = '/sys/bus/w1/devices/' + serial + '/w1_slave'
+    filePath = '/sys/bus/w1/devices/%s/w1_slave' % serial
     
     try:
         file = open(filePath)
