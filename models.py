@@ -26,4 +26,4 @@ class Logs(BaseModel):
     message = CharField()
     date = DateTimeField()  
 
-db.create_tables([Readings], safe=True)
+db.create_tables([Readings, Logs], safe=True)
