@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "caa5b7a1b7553b8cdaf50093a6c05b062198e06933712a9f994d07b7f2ddebc0"
+            "sha256": "48d1785009eee2819a00ba3fce1b49382a7a5a802c273fc9111dc9e6aa5dbe57"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -27,11 +27,8 @@
         ]
     },
     "default": {
-        "adafruit-python-dht": {
-            "hashes": [
-                "sha256:c837152acd70fa072518f71a9c3cf7b092cec5b9b0c1e0a4aec73a61a682b519"
-            ],
-            "version": "==1.1.2"
+        "0cb21c3": {
+            "file": "https://pypi.python.org/packages/source/A/Adafruit_Python_DHT/Adafruit_Python_DHT-1.1.2.tar.gz"
         },
         "certifi": {
             "hashes": [

@@ -15,4 +15,4 @@ peewee = "*"
 python-dotenv = "*"
 pymysql = "*"
 requests = "*"
-adafruit-python-dht = "*"
+"0cb21c3" = {file = "https://pypi.python.org/packages/source/A/Adafruit_Python_DHT/Adafruit_Python_DHT-1.1.2.tar.gz"}
