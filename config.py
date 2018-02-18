@@ -12,7 +12,7 @@ config = {
         }
     ],
 
-    "DHT": [
+    "DHT22": [
         {
             'name': 'House',
             'pin': 14

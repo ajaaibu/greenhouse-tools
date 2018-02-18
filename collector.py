@@ -53,6 +53,6 @@ if '--probes' in sys.argv:
 
 
 if '--dht' in sys.argv:
-    dht_thread = threading.Thread(target=read_from_dht, args=(config.get('DHT'),))
+    dht_thread = threading.Thread(target=read_from_dht, args=(config.get('DHT22'),))
     threads.append(dht_thread)
     dht_thread.start()
