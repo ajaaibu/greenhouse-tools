@@ -1,4 +1,4 @@
-from drivers import TempProbe, DHT22
+from drivers import TempProbe, DHT22, PiStats
 from helpers import log
 from models import Readings
 from config import config
@@ -44,6 +44,40 @@ def read_from_dht(dhts):
         elif isinstance(dht_data, str):
             log(dht_data)
 
+def read_cpu():
+    cpu_data = PiStats()
+
+    if isinstance(cpu_data, dict):
+        Readings.create(
+            sensor = 'Pi Temperature',
+            timestamp = datetime.datetime.now(),
+            type = 1,
+            value = cpu_data.get('cpuTemp')
+        )
+
+        log('Pi Tempearture: %s' % cpu_data.get('cpuTemp'))
+
+        Readings.create(
+            sensor = 'CPU Usage',
+            timestamp = datetime.datetime.now(),
+            type = 4,
+            value = cpu_data.get('cpuUsage')
+        )
+
+        log('CPU Usage: %s' % cpu_data.get('cpuUsage'))
+
+        Readings.create(
+            sensor = 'RAM Used',
+            timestamp = datetime.datetime.now(),
+            type = 5,
+            value = cpu_data.get('ramUsed')
+        )
+
+        log('RAM Used: %s' % cpu_data.get('ramUsed'))
+        
+    elif isinstance(cpu_data, str):
+        log(cpu_data)
+
 threads = []
 
 if '--probes' in sys.argv:
@@ -56,3 +90,8 @@ if '--dht' in sys.argv:
     dht_thread = threading.Thread(target=read_from_dht, args=(config.get('DHT22'),))
     threads.append(dht_thread)
     dht_thread.start()
+
+if '--cpu' in sys.argv:
+    cpu_thread = threading.Thread(target=read_cpu)
+    threads.append(cpu_thread)
+    cpu_thread.start()
