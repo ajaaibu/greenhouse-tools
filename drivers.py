@@ -31,7 +31,7 @@ def get_cpu_temperature():
     return(res.replace("temp=","").replace("'C\n",""))
 
 def PiStats():
-#    try:
+   try:
         ram = psutil.virtual_memory()
         disk = psutil.disk_usage('/')
         return {
@@ -44,5 +44,5 @@ def PiStats():
             "diskTotal": disk.total / 2**30,
             "diskUsed": disk.used / 2**30
         }
- #   except:
- #       return 'Couldn\'t read CPU Stats'
+   except:
+       return 'Couldn\'t read CPU Stats'
