@@ -34,6 +34,7 @@ def get_cpu_temperature():
 def PiStats():
     try:
         ram = psutil.virtual_memory()
+        print ram
         disk = psutil.disk_usage('/')
         return {
             "cpuTemp": get_cpu_temperature(),
