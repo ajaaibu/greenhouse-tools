@@ -1,6 +1,6 @@
+from __future__ import division
 import os, sys
 import Adafruit_DHT as dht
-from __future__ import division
 from subprocess import PIPE, Popen
 import psutil
 
