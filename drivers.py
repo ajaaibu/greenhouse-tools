@@ -38,11 +38,11 @@ def PiStats():
         return {
             "cpuTemp": get_cpu_temperature(),
             "cpuUsage": psutil.cpu_percent(),
-            "ramTotal": ram.total / 2**20
-            "ramUsed": ram.used / 2**20
-            "ramFree": ram.free / 2**20
+            "ramTotal": ram.total / 2**20,
+            "ramUsed": ram.used / 2**20,
+            "ramFree": ram.free / 2**20,
             "ramPercentUsed": ram.percent,
-            "diskTotal": disk.total / 2**30
+            "diskTotal": disk.total / 2**30,
             "diskUsed": disk.used / 2**30
         }
     except:
