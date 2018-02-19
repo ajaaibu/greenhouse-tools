@@ -1,7 +1,7 @@
 from __future__ import division
 import os, sys
 import Adafruit_DHT as dht
-from subprocess import PIPE, Popen
+# from subprocess import PIPE, Popen
 import psutil
 
 def TempProbe(name, serial):
@@ -27,9 +27,8 @@ def DHT22(name, pin_no):
         return 'Couldn\'t read from %s, pin: %s' % (name, pin_no)
 
 def get_cpu_temperature():
-    process = Popen(['vgcencmd', 'measure_temp'], stdout=PIPE)
-    output, _error = process.communicate()
-    return float(output[output.index("=") + 1:output.rindex("'")])
+    res = os.popen('vcgencmd measure_temp').readline()
+    return(res.replace("temp=","").replace("'C\n",""))
 
 def PiStats():
 #    try:
