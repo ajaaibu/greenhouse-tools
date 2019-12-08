@@ -23,7 +23,7 @@ def read_from_probes(probes):
 def read_from_dht(dhts):
     for pin in dhts:
 
-        dht_data = DHT22(pin.get('name'), pin.get('pin'))
+        dht_data = DHT11(pin.get('name'), pin.get('pin'))
 
         if(isinstance(dht_data, dict)):
             Readings.create(
