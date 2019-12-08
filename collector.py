@@ -1,4 +1,4 @@
-from drivers import TempProbe, DHT22, PiStats
+from drivers import TempProbe, DHT22, DHT11, PiStats
 from helpers import log
 from models import Readings
 from config import config
