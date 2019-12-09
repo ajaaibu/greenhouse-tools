@@ -53,9 +53,9 @@ def HCSR04(name: str, pin_tri: int, pin_echo: int):
 
         GPIO.output(pin_tri, GPIO.LOW)
 
-        print "Waiting for sensor to settle"
+        print("Waiting for sensor to settle")
         time.sleep(2)
-        print "Calculating distance"
+        print("Calculating distance")
 
         GPIO.output(pin_tri, GPIO.HIGH)
 
