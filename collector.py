@@ -126,12 +126,12 @@ if '--probes' in sys.argv:
 
 
 if '--dht' in sys.argv:
-    if config.get('DHT11').count() > 0:
+    if (config.get('DHT11')).count() > 0:
         dht11_thread = threading.Thread(target=read_from_dht11, args=(config.get('DHT11')))
         threads.append(dht11_thread)
         dht11_thread.start()
 
-    if config.get('DHT22').count() > 0:
+    if (config.get('DHT22')).count() > 0:
         dht22_thread = threading.Thread(target=read_from_dht22, args=(config.get('DHT22')))
         threads.append(dht22_thread)
         dht22_thread.start()

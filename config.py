@@ -26,7 +26,7 @@ config = {
         {
             'name': 'Water tank',
             'pin_tri': 23,
-            'pin_echo': 24,
+            'pin_echo': 24
         }
     ]
 }

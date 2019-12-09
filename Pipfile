@@ -10,10 +10,10 @@ name = "pypi"
 
 
 [packages]
-rpi-gpio = "*"
 Adafruit_DHT = "*"
 peewee = "*"
 python-dotenv = "*"
 pymysql = "*"
 requests = "*"
 psutil = "*"
+gpiozero = "*"
