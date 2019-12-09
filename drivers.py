@@ -7,15 +7,6 @@ import time
 from gpiozero import DistanceSensor
 
 def TempProbe(name, serial):
-    """ Read temperature data from a probe (DS18B20)
-    
-    Parameters
-    ----------
-    name: str, required
-        Source name, eg: water tank
-    serial: str, required
-        Serial number of the probe, must be starting with 28-
-    """
     filePath = '/sys/bus/w1/devices/%s/w1_slave' % serial
     
     try:
