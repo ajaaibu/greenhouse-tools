@@ -126,18 +126,18 @@ if '--probes' in sys.argv:
 
 
 if '--dht' in sys.argv:
-    if config.get('DHT11').count() > 0:
+    if config.get('DHT11'):
         dht11_thread = threading.Thread(target=read_from_dht11, args=(config.get('DHT11'),))
         threads.append(dht11_thread)
         dht11_thread.start()
 
-    if config.get('DHT22').count() > 0:
+    if config.get('DHT22'):
         dht22_thread = threading.Thread(target=read_from_dht22, args=(config.get('DHT22'),))
         threads.append(dht22_thread)
         dht22_thread.start()
 
 if '--distance' in sys.argv:
-    if config.get('HCSR04').count() > 0:
+    if config.get('HCSR04'):
         distance_thread = threading.Thread(target=read_from_hcsr04, args=(config.get('HCSR04'),))
         threads.append(distance_thread)
         distance_thread.start()
