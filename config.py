@@ -4,12 +4,12 @@ config = {
     "DS18B20" : [
         {
             'name': 'Water Tank',
-            'serial': '28-031685612cff'
+            'serial': '28-0114551035aa'
         },
-        {
-            'name': 'Nutrition Tank',
-            'serial': '28-041685d1d1ff'
-        }
+        # {
+        #     'name': 'Nutrition Tank',
+        #     'serial': '28-041685d1d1ff'
+        # }
     ],
 
     "DHT22": [
