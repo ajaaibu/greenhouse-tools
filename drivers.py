@@ -23,7 +23,7 @@ def TempProbe(name, serial):
 
 def DHT11(name, pin_no):
     try:
-        dht_device = DHT11(pin_no)
+        dht_device = dht.DHT11(pin_no)
         return {"temperature": ('{:3.2f}'.format(dht_device.temperature)), "humidity": ('{:3.2f}'.format(dht_device.humidity))}
     except:
         return 'Couldn\'t read from %s, pin: %s' % (name, pin_no)
