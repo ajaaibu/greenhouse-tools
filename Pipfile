@@ -10,6 +10,7 @@ name = "pypi"
 
 
 [packages]
+RPi.GPIO = "*"
 Adafruit_DHT = "*"
 peewee = "*"
 python-dotenv = "*"

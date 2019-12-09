@@ -12,10 +12,21 @@ config = {
         # }
     ],
 
-    "DHT22": [
+    "DHT11": [
         {
             'name': 'House',
             'pin': 14
+        }
+    ],
+
+    "DHT22": [
+    ],
+
+    "HCSR04": [
+        {
+            'name': 'Water tank',
+            'pin_tri': 23,
+            'pin_echo': 24,
         }
     ]
 }
