@@ -113,7 +113,7 @@ def read_from_hcsr04(sensors):
                 type = 6,
                 value = sensor_data.get('distance')
             )
-            log('%s Distance: %s', (sensor.get('name'), sensor_data.get('distance')))
+            log('%s Distance: %s' % (sensor.get('name'), sensor_data.get('distance')))
         elif isinstance(sensor_data, str):
             log(sensor_data)
 
