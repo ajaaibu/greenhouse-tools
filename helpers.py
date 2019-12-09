@@ -192,4 +192,4 @@ def log(message):
         date = date,
         user = 1
     )
-    print (date, message)
+    print date, message

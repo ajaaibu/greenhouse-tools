@@ -10,7 +10,7 @@ name = "pypi"
 
 
 [packages]
-Adafruit_DHT = "*"
+adafruit-circuitpython-dht = "*"
 peewee = "*"
 python-dotenv = "*"
 pymysql = "*"
