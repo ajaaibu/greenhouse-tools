@@ -5,7 +5,7 @@ config = {
         {
             'name': 'Water Tank',
             'serial': '28-0114551035aa'
-        },
+        }
         # {
         #     'name': 'Nutrition Tank',
         #     'serial': '28-041685d1d1ff'

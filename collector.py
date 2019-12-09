@@ -8,7 +8,7 @@ import datetime, threading, sys
 def read_from_probes(probes):
     for probe in probes:
 
-        data = TempProbe(probe.get('name'),probe.get('serial'))
+        data = TempProbe(probe.get('name'), probe.get('serial'))
         if isinstance(data, dict):
             Readings.create(
                 sensor = probe.get('name'),
@@ -120,25 +120,25 @@ def read_from_hcsr04(sensors):
 threads = []
 
 if '--probes' in sys.argv:
-    probes_thread = threading.Thread(target=read_from_probes, args=(config.get('DS18B20')))
+    probes_thread = threading.Thread(target=read_from_probes, args=(config.get('DS18B20'),))
     threads.append(probes_thread)
     probes_thread.start()
 
 
 if '--dht' in sys.argv:
-    if (config.get('DHT11')).count() > 0:
-        dht11_thread = threading.Thread(target=read_from_dht11, args=(config.get('DHT11')))
+    if config.get('DHT11').count() > 0:
+        dht11_thread = threading.Thread(target=read_from_dht11, args=(config.get('DHT11'),))
         threads.append(dht11_thread)
         dht11_thread.start()
 
-    if (config.get('DHT22')).count() > 0:
-        dht22_thread = threading.Thread(target=read_from_dht22, args=(config.get('DHT22')))
+    if config.get('DHT22').count() > 0:
+        dht22_thread = threading.Thread(target=read_from_dht22, args=(config.get('DHT22'),))
         threads.append(dht22_thread)
         dht22_thread.start()
 
 if '--distance' in sys.argv:
     if config.get('HCSR04').count() > 0:
-        distance_thread = threading.Thread(target=read_from_hcsr04, args=(config.get('HCSR04')))
+        distance_thread = threading.Thread(target=read_from_hcsr04, args=(config.get('HCSR04'),))
         threads.append(distance_thread)
         distance_thread.start()
 
