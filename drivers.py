@@ -5,6 +5,7 @@ import Adafruit_DHT as dht
 import psutil
 import RPi.GPIO as GPIO
 import time
+from gpiozero import DistanceSensor
 
 def TempProbe(name: str, serial: str):
     """ Read temperature data from a probe (DS18B20)
@@ -46,34 +47,11 @@ def DHT22(name: str, pin_no: int):
 
 def HCSR04(name: str, pin_tri: int, pin_echo: int):
     try:
-        GPIO.setmode(GPIO.BOARD)
+        sensor = DistanceSensor(echo=pin_echo, trigger=pin_tri, max_distance=1, threshold_distance=0.3)
 
-        GPIO.setup(pin_tri, GPIO.OUT)
-        GPIO.setup(pin_echo, GPIO.IN)
-
-        GPIO.output(pin_tri, GPIO.LOW)
-
-        print("Waiting for sensor to settle")
-        time.sleep(2)
-        print("Calculating distance")
-
-        GPIO.output(pin_tri, GPIO.HIGH)
-
-        time.sleep(0.00001)
-
-        GPIO.output(pin_tri, GPIO.LOW)
-        GPIO.output(pin_tri, GPIO.LOW)
-
-        while GPIO.input(pin_echo)==0:
-                pulse_start_time = time.time()
-        while GPIO.input(pin_echo)==1:
-                pulse_end_time = time.time()
-
-        pulse_duration = pulse_end_time - pulse_start_time
-        distance = round(pulse_duration * 17150, 2)
-        return {"distance": distance, "unit": "cm"}
-    finally:
-        GPIO.cleanup()
+        return {"distance": sensor.distance, "unit": "meter"}
+    except:
+        return 'Couln\'t read from Distance Sensor'
 
 def get_cpu_temperature():
     res = os.popen('vcgencmd measure_temp').readline()
