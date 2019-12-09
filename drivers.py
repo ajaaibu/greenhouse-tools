@@ -6,7 +6,7 @@ import psutil
 import time
 from gpiozero import DistanceSensor
 
-def TempProbe(name: str, serial: str):
+def TempProbe(name, serial):
     """ Read temperature data from a probe (DS18B20)
     
     Parameters
@@ -30,21 +30,21 @@ def TempProbe(name: str, serial: str):
     except:
         return 'Couldn\'t read from %s, serial: %s' % (name, serial)
 
-def DHT11(name: str, pin_no: int):
+def DHT11(name, pin_no):
     try:
         h,t = dht.read_retry(dht.DHT11, pin_no)
         return {"temperature": ('{:3.2f}'.format(t)), "humidity": ('{:3.2f}'.format(h))}
     except:
         return 'Couldn\'t read from %s, pin: %s' % (name, pin_no)
 
-def DHT22(name: str, pin_no: int):
+def DHT22(name, pin_no):
     try:
         h,t = dht.read_retry(dht.DHT22, pin_no)
         return {"temperature": ('{:3.2f}'.format(t)), "humidity": ('{:3.2f}'.format(h))}
     except:
         return 'Couldn\'t read from %s, pin: %s' % (name, pin_no)
 
-def HCSR04(name: str, pin_tri: int, pin_echo: int):
+def HCSR04(name, pin_tri, pin_echo):
     try:
         sensor = DistanceSensor(echo=pin_echo, trigger=pin_tri, max_distance=1, threshold_distance=0.3)
 
