@@ -3,7 +3,6 @@ import os, sys
 import Adafruit_DHT as dht
 # from subprocess import PIPE, Popen
 import psutil
-import RPi.GPIO as GPIO
 import time
 from gpiozero import DistanceSensor
 
