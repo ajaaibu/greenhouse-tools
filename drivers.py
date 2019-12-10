@@ -1,6 +1,6 @@
 from __future__ import division
 import os, sys
-import adafruit_dht as dht
+import Adafruit_DHT as dht
 # from subprocess import PIPE, Popen
 import psutil
 import time
@@ -23,8 +23,8 @@ def TempProbe(name, serial):
 
 def DHT11(name, pin_no):
     try:
-        dht_device = dht.DHT11(pin_no)
-        return {"temperature": ('{:3.2f}'.format(dht_device.temperature)), "humidity": ('{:3.2f}'.format(dht_device.humidity))}
+        h,t = dht.read_retry(dht.DHT11, pin_no)
+        return {"temperature": ('{:3.2f}'.format(t)), "humidity": ('{:3.2f}'.format(h))}
     except:
         return 'Couldn\'t read from %s, pin: %s' % (name, pin_no)
 
@@ -41,7 +41,7 @@ def HCSR04(name, pin_tri, pin_echo):
 
         return {"distance": sensor.distance, "unit": "meter"}
     except:
-        return 'Couln\'t read from Distance Sensor'
+        return 'Couldn\'t read from Distance Sensor'
 
 def get_cpu_temperature():
     res = os.popen('vcgencmd measure_temp').readline()
